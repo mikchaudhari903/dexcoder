@@ -1,27 +1,9 @@
-name: Deploy to Firebase Hosting on merge
+# firebase-hosting-merge.yml
 
-'on':
-  push:
-    branches:
-      - main
-
-jobs:
-  build_and_deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Install dependencies
-      run: npm install
-
-    - name: Build project
-      run: npm run build
-
-    - name: Deploy to Firebase
-      uses: w9jds/firebase-action@v2.2.1
-      with:
-        args: deploy --only hosting
-      env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+hosting:
+  target: your-firebase-project-name  # Replace with your Firebase project name
+  public: public  # Replace 'public' with the directory containing your static assets
+  ignore:
+    - firebase.json
+    - firebase-debug.log
+    - node_modules/**  # Adjust as needed for files to ignore
