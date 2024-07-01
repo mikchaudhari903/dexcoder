@@ -1,7 +1,7 @@
 # firebase-hosting-merge.yml
 
 hosting:
-  target: your-firebase-project-name  # Replace with your Firebase project name
+  target: dexcoder  # Replace with your Firebase project name
   public: public  # Replace 'public' with the directory containing your static assets
   ignore:
     - firebase.json
