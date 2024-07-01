@@ -1,9 +1,28 @@
-# firebase-hosting-merge.yml
+name: Firebase Hosting Deploy
 
-hosting:
-  target: dexcoder  # Replace with your Firebase project name
-  public: public  # Replace 'public' with the directory containing your static assets
-  ignore:
-    - firebase.json
-    - firebase-debug.log
-    - node_modules/**  # Adjust as needed for files to ignore
+on:
+  push:
+    branches:
+      - main  # Set the branch you want to deploy from
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
+      
+      - name: Login to Firebase
+        run: firebase login:ci --interactive
+      
+      - name: Install project dependencies
+        run: npm install
+      
+      - name: Build project
+        run: npm run build  # Adjust as per your build script
+      
+      - name: Deploy to Firebase Hosting
+        run: firebase deploy --project dexcoder --token ${{ secrets.FIREBASE_TOKEN }}  # Replace `dexcoder` with your Firebase project name
