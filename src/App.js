@@ -1,24 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import UserRoutes from './routes/UserRoutes';
+import AdminRoutes from './routes/AdminRoutes';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+         {/* Define a base path for user routes */}
+         <Route path="/*" element={<UserRoutes />} />
+
+        {/* Define a base path for admin routes */}
+        <Route path="/admin/*" element={<AdminRoutes />} />
+        
+      </Routes>
+    </Router>
   );
 }
 
