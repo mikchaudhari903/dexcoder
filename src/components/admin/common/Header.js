@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+
 const Header = () => {
+
+    const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const toggleMobileMenu = () => {
+        setMobileMenuOpen(!isMobileMenuOpen);
+      };
+    
+      // Effect to add/remove class from body
+      useEffect(() => {
+        if (isMobileMenuOpen) {
+          document.body.classList.add('toggle-sidebar');
+        } else {
+          document.body.classList.remove('toggle-sidebar');
+        }
+        // Cleanup the class when the component is unmounted
+        return () => {
+          document.body.classList.remove('toggle-sidebar');
+        };
+      }, [isMobileMenuOpen]);
+    
   return (
     <>
     <header id="header" class="header fixed-top d-flex align-items-center">
@@ -10,7 +30,7 @@ const Header = () => {
             <img src="assets/img/logo.png" alt="" />
             <span class="d-none d-lg-block">NiceAdmin</span>
         </a>
-        <i class="bi bi-list toggle-sidebar-btn"></i>
+        <i class="bi bi-list toggle-sidebar-btn" onClick={toggleMobileMenu}></i>
         </div>
 
         <div class="search-bar">

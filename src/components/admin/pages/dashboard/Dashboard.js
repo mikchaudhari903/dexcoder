@@ -1,6 +1,8 @@
 import React from 'react';
 import Header from '../../common/Header';
 import Sidebar from '../../common/Sidebar';
+import AddData from '../RealtimeData/AddData';
+import RealtimeData from '../RealtimeData/RealtimeData';
 
 const Dashboard = () => {
   return (
@@ -23,7 +25,8 @@ const Dashboard = () => {
         <div className="col-lg-12">
           <div className="row">
 
-         
+         <AddData />
+         <RealtimeData />
             <div className="col-xxl-4 col-md-6">
               <div className="card info-card sales-card">
 
