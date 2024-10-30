@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom';
-import './Header.css';
+// import './Header.css';
 
 const Header = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -56,38 +56,38 @@ const Header = () => {
 
         <nav id="navmenu" className="navmenu">
           <ul classNameName="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li classNameName="nav-item">
-                <Link classNameName="nav-link" to="/">
+              <li>
+                <Link to="/">
                   Home
                 </Link>
               </li>
-              <li classNameName="nav-item">
-                <Link classNameName="nav-link" to="/about">
+              <li>
+                <Link to="/about">
                   About
                 </Link>
               </li>
-              <li classNameName="nav-item">
-                <Link classNameName="nav-link" to="/contact">
+              <li>
+                <Link to="/contact">
                   Contact
                 </Link>
               </li>
-              <li classNameName="nav-item">
-                <Link classNameName="nav-link" to="/services">
+              <li>
+                <Link to="/services">
                   Services
                 </Link>
               </li>
-              <li classNameName="nav-item">
-                <Link classNameName="nav-link" to="/protfolio">
+              <li>
+                <Link to="/protfolio">
                   Portfolio
                 </Link>
               </li>
-              <li classNameName="nav-item">
-                <Link classNameName="nav-link" to="/login">
+              <li >
+                <Link to="/login">
                   Login
                 </Link>
               </li>
-              <li classNameName="nav-item">
-                <Link classNameName="nav-link" to="/register">
+              <li>
+                <Link to="/register">
                   Register
                 </Link>
               </li>
@@ -97,7 +97,7 @@ const Header = () => {
             onClick={toggleMobileMenu}
           ></i>
         </nav>
-        <a className="btn-getstarted" href="index.html#about">Get Started</a>
+       
 
       </div>
     </header>
